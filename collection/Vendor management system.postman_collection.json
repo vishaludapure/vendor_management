@@ -1,0 +1,568 @@
+{
+	"info": {
+		"_postman_id": "b597e20b-2530-4570-99cf-a6dff1d2a92c",
+		"name": "Vendor management system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31494033"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"vishal\",\r\n    \"password\":\"vishal123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				},
+				"description": "This end point retrieves authorization token required to hit apis to access and manipulate data in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Add Vendors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDAwNDU2LCJpYXQiOjE3MDM0MDAxNTYsImp0aSI6IjM3Mzk3Yjc2MWRhZTQ5MzA5N2VkYmQ1MzY2MTg0MTFhIiwidXNlcl9pZCI6MX0.-JefTMvewmm-cZRvUp8WLmQ_sxfo06lxdahF3IcKdeE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAxMjg2MTYyLCJpYXQiOjE3MDEyODU4NjIsImp0aSI6Ijg5NmZkM2M1NjI3ZDRkY2I5ZDAzOWM1NDU3MWRlMGNjIiwidXNlcl9pZCI6MX0.V7Ngakn_IgVoesON2UdkaJCtCoG-uq3B59aWQ2rL6Zk",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Salim Sheikh\",\r\n  \"contact_details\": \"9548452154\",\r\n  \"address\": \"Mumbai\",\r\n  \"vendor_code\": \"vendor4\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vendors/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors",
+						""
+					]
+				},
+				"description": "This api creates vendor and add vendor data to the database."
+			},
+			"response": []
+		},
+		{
+			"name": "List Vendors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk0ODU3LCJpYXQiOjE3MDM0OTQ1NTcsImp0aSI6IjdlZWRhYmJjM2U2NTRiMWRiOTI1MWU4NmJjMjFkZGI1IiwidXNlcl9pZCI6MX0.7YrbOsECDsKp1fIPiLpfF3m3bdzKNoY9mZUHNWFP_2Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vendors/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors",
+						""
+					]
+				},
+				"description": "This api lists all vendors available in the database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Vendor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk0ODU3LCJpYXQiOjE3MDM0OTQ1NTcsImp0aSI6IjdlZWRhYmJjM2U2NTRiMWRiOTI1MWU4NmJjMjFkZGI1IiwidXNlcl9pZCI6MX0.7YrbOsECDsKp1fIPiLpfF3m3bdzKNoY9mZUHNWFP_2Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vendors/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors",
+						"1",
+						""
+					]
+				},
+				"description": "This api retrieves specific vendor from the database using vendor id."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Vendor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk0ODU3LCJpYXQiOjE3MDM0OTQ1NTcsImp0aSI6IjdlZWRhYmJjM2U2NTRiMWRiOTI1MWU4NmJjMjFkZGI1IiwidXNlcl9pZCI6MX0.7YrbOsECDsKp1fIPiLpfF3m3bdzKNoY9mZUHNWFP_2Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \r\n        \"name\": \"Salim Sheikh\",\r\n        \"contact_details\": \"9548452154\",\r\n        \"address\": \"Pune\",\r\n        \"vendor_code\": \"vendor4\",\r\n        \"on_time_delivery_rate\": 0.0,\r\n        \"quality_rating_avg\": 0.0,\r\n        \"average_response_time\": 0.0,\r\n        \"fulfillment_rate\": 0.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vendors/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors",
+						"4",
+						""
+					]
+				},
+				"description": "This api updates specific vendor data using vendor id."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Vendor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk1NTc2LCJpYXQiOjE3MDM0OTUyNzYsImp0aSI6ImUxMWE0ZGIyYjU2ZjQ1NDY4ZjNlNWQ4ZDk4ODk5ODA0IiwidXNlcl9pZCI6MX0.0-L-N6Y-Hbz2kkP9wTnigDXyoscQ_8Pkm5uyl8aDwAA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/vendors/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors",
+						"4",
+						""
+					]
+				},
+				"description": "This api deletes specific vendor data using vendor id."
+			},
+			"response": []
+		},
+		{
+			"name": "Save Purchase Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk2MDExLCJpYXQiOjE3MDM0OTU3MTEsImp0aSI6IjQ2OTc2MDkyZDIwNDQ2MDk4YTg3N2YzN2ZkOWQwN2I5IiwidXNlcl9pZCI6MX0.uEFVioEBJdnmlZXohLzAw-qGohHKPe5pyCyCDWWrtDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vendor\": 1,  \r\n  \"po_number\": \"PO7\",\r\n  \"order_date\": \"2023-12-25\",\r\n  \"delivery_date\": \"2023-12-30\",\r\n  \"items\": [\r\n    {\r\n      \"name\": \"Item 13\"\r\n    },\r\n    {\r\n      \"name\": \"Item 14\"\r\n    }\r\n  ],\r\n  \"quantity\": 10,\r\n  \"status\": \"pending\",\r\n  \"quality_rating\": null,\r\n  \"issue_date\": \"2023-11-30\",\r\n  \"acknowledgment_date\": null\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase_orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase_orders",
+						""
+					]
+				},
+				"description": "This api adds purchase order in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "List All Purchase Orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk2MDExLCJpYXQiOjE3MDM0OTU3MTEsImp0aSI6IjQ2OTc2MDkyZDIwNDQ2MDk4YTg3N2YzN2ZkOWQwN2I5IiwidXNlcl9pZCI6MX0.uEFVioEBJdnmlZXohLzAw-qGohHKPe5pyCyCDWWrtDg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase_orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase_orders",
+						""
+					]
+				},
+				"description": "This api retrieves all purchase orders from the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Purchase Order by filter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk3MjYxLCJpYXQiOjE3MDM0OTY5NjEsImp0aSI6IjYzNWVhYjhhM2VhMTRiZDI5YWExYzQwYWU1OThhY2NiIiwidXNlcl9pZCI6MX0.VL-0K5OFEj9K7b1jyY2OMYh0WLiRm0oesbkSB4Virpg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase_orders/PO7/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase_orders",
+						"PO7",
+						""
+					]
+				},
+				"description": "This api retrieves specific purchase order by purchase order number."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Purchase Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk4NTM2LCJpYXQiOjE3MDM0OTgyMzYsImp0aSI6ImZkOTgwMDRkZGNhMTQwODE5MDgyMmZlNDA0MzAzYTkzIiwidXNlcl9pZCI6MX0.jijAWn-FyutuNpTKlT8z-YsTPvUHUQBCClC2eenymEY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"po_number\": \"PO7\",\r\n    \"order_date\": \"2023-12-25T00:00:00Z\",\r\n    \"delivery_date\": \"2023-12-30T00:00:00Z\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Item 13\"\r\n        },\r\n        {\r\n            \"name\": \"Item 14\"\r\n        }\r\n    ],\r\n    \"quantity\": 15,\r\n    \"status\": \"completed\",\r\n    \"quality_rating\": null,\r\n    \"issue_date\": \"2023-11-30T00:00:00Z\",\r\n    \"acknowledgment_date\": null,\r\n    \"vendor\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase_orders/PO7/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase_orders",
+						"PO7",
+						""
+					]
+				},
+				"description": "This api update specific purchase order by purchase order number."
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor acknowledgement",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk4NTM2LCJpYXQiOjE3MDM0OTgyMzYsImp0aSI6ImZkOTgwMDRkZGNhMTQwODE5MDgyMmZlNDA0MzAzYTkzIiwidXNlcl9pZCI6MX0.jijAWn-FyutuNpTKlT8z-YsTPvUHUQBCClC2eenymEY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 7,\r\n    \"po_number\": \"PO7\",\r\n    \"order_date\": \"2023-12-25T00:00:00Z\",\r\n    \"delivery_date\": \"2023-12-30T00:00:00Z\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Item 13\"\r\n        },\r\n        {\r\n            \"name\": \"Item 14\"\r\n        }\r\n    ],\r\n    \"quantity\": 15,\r\n    \"status\": \"completed\",\r\n    \"quality_rating\": null,\r\n    \"issue_date\": \"2023-11-30T00:00:00Z\",\r\n    \"acknowledgment_date\": \"2023-12-28\",\r\n    \"vendor\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase_orders/PO7/acknowledge/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase_orders",
+						"PO7",
+						"acknowledge",
+						""
+					]
+				},
+				"description": "This api updates specific vendor acknowledgement by purchase order number."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Purchase Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNDk4MzEzLCJpYXQiOjE3MDM0OTgwMTMsImp0aSI6ImJkZWY4MjgxYmVlZjQ1MzE4NzFhYTI1MGU4ZThlNjhiIiwidXNlcl9pZCI6MX0.ztYfae-zkieoSuzSH72m2ygw8k4HOTwjYYaGeHGefBs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase_orders/PO7/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase_orders",
+						"PO7",
+						""
+					]
+				},
+				"description": "This api deletes specific purchase order by purchase order number."
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Performance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzNTAxMTUyLCJpYXQiOjE3MDM1MDA4NTIsImp0aSI6ImNiMGE0ZTZmNTNlODQxMmQ4Mzk0YjllMDdiNmRiNjk4IiwidXNlcl9pZCI6MX0.SenbG21tgEfvD8xiPc7u_KGTk3TQMvQ3KBbH7TUyW5Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/vendors/1/performance/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors",
+						"1",
+						"performance",
+						""
+					]
+				},
+				"description": "This api retrieves performance metrics for specific vendor using vendor id."
+			},
+			"response": []
+		}
+	]
+}
